@@ -4,7 +4,7 @@ struct LoginView: View {
     @StateObject var LoginVM = LogInViewModel()
     var body: some View {
         ZStack {
-            NavigationLink(destination: ManagementView(), tag: 1, selection: $LoginVM.isSucced) { EmptyView() }
+            NavigationLink(destination: TabbarView(), tag: 1, selection: $LoginVM.isSucced) { EmptyView() }
             VStack(alignment: .leading, spacing: 19) {
                 Spacer()
                     .frame(height: 110)

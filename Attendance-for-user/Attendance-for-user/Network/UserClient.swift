@@ -4,7 +4,7 @@ import Moya
 enum UserService {
     case logIn(name: String, password: String)
     case signUp(name: String, password: String)
-    case startWork
+    case startWork(latitude: String, longitude: String)
     case getMyStatus
     case outOfWork
     case onlineUsers
@@ -33,9 +33,9 @@ extension UserService: TargetType {
         case .outOfWork:
             return "/attendance/edit"
         case .onlineUsers:
-            return "/attendance/go-work"
+            return "/attendance/duty"
         case .offlineUsers:
-            return "/attendance/not/go-work"
+            return "/attendance/not/duty"
         }
     }
     
@@ -70,16 +70,25 @@ extension UserService: TargetType {
                     ],
                 encoding: JSONEncoding.default
             )
-        case .startWork, .getMyStatus, .outOfWork, .onlineUsers, .offlineUsers:
+        case .startWork(let latitude, let longitude):
+            return .requestParameters(
+                parameters:
+                    [
+                        "latitude" : latitude,
+                        "longitude" : longitude
+                    ],
+                encoding: JSONEncoding.default
+            )
+        case .getMyStatus, .outOfWork, .onlineUsers, .offlineUsers:
             return .requestPlain
         }
     }
     
     var headers: [String : String]? {
         switch self {
-        case .logIn, .signUp:
+        case .logIn, .signUp, .onlineUsers, .offlineUsers:
             return Header.tokenIsEmpty.header()
-        case .startWork, .getMyStatus, .outOfWork, .onlineUsers, .offlineUsers:
+        case .startWork, .getMyStatus, .outOfWork:
             return Header.accessToken.header()
         }
     }

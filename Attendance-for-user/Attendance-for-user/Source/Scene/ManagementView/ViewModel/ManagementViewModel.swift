@@ -15,6 +15,7 @@
  */
 
 import Foundation
+import CoreLocation
 import Moya
 
 class ManagementViewModel: ObservableObject {
@@ -24,6 +25,10 @@ class ManagementViewModel: ObservableObject {
     @Published var workTime: String = "-:-:-"
     @Published var timeRemaining: String = "-:-:-"
     @Published var status: String = ""
+    @Published var latitude: String = "0"
+    @Published var longitude: String = "0"
+    @Published var isError: Bool = false
+    @Published var errorMessage: String = ""
     
     func getMyStatus() {
         userClient.request(.getMyStatus) { res in
@@ -36,7 +41,7 @@ class ManagementViewModel: ObservableObject {
                         if let data = try? decoder.decode(ManagementModel.self, from: result.data) {
                             self.startTime = data.startTime
                             self.workTime = data.workTime
-                            self.timeRemaining = data.timeRemaining
+                            self.timeRemaining = data.remainingTime
                             self.status = data.status
                             print("✅상태 가져옴")
                         } else {
@@ -44,7 +49,12 @@ class ManagementViewModel: ObservableObject {
                         }
                     }
                 default:
-                    print("⚠️getStatus error")
+                    if let errData = try? JSONDecoder().decode(ErrorModel.self, from: result.data) {
+                        self.isError = true
+                        self.errorMessage = errData.errorMessage
+                    } else {
+                        print("⚠️getStatus error docoder error")
+                    }
                 }
             case .failure(let err):
                 print("⛔️getStatus error: \(err.localizedDescription)")
@@ -53,17 +63,20 @@ class ManagementViewModel: ObservableObject {
     }
     
     func goWork() {
-        userClient.request(.startWork) { res in
+        userClient.request(.startWork(latitude: latitude, longitude: longitude)) { res in
             switch res {
             case .success(let result):
                 switch result.statusCode {
                 case 200:
-                    DispatchQueue.main.async {
-                        self.getMyStatus()
-                        print("🔥출근함")
-                    }
+                    self.getMyStatus()
+                    print("🔥출근함")
                 default:
-                    print("⚠️goWork error")
+                    if let errData = try? JSONDecoder().decode(ErrorModel.self, from: result.data) {
+                        self.isError = true
+                        self.errorMessage = errData.errorMessage
+                    } else {
+                        print("⚠️goWork error docoder error")
+                    }
                 }
             case .failure(let err):
                 print("⛔️goWork error: \(err.localizedDescription)")

@@ -52,7 +52,7 @@ struct AuthTextField: View {
                     Button {
                         self.isShow.toggle()
                     } label: {
-                        Image(isShow ? "eye" : "eye")
+                        Image(isShow ? "eye" : "eye_close")
                     }
                     .frame(width: 25, height: 25)
                     .padding(.trailing, 10)

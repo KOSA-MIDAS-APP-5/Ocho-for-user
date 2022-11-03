@@ -8,7 +8,10 @@
 import SwiftUI
 
 struct ManagementView: View {
+    let locationService = LocationService()
     @StateObject var managementVM = ManagementViewModel()
+    @State private var goWorkAlert: Bool = false
+    @State private var outWorkAlert: Bool = false
     var body: some View {
         VStack() {
             Spacer()
@@ -41,7 +44,7 @@ struct ManagementView: View {
             Spacer()
             HStack(spacing: 5) {
                 Button {
-                    managementVM.goWork()
+                    self.goWorkAlert = true
                 } label: {
                     Text("출근")
                         .font(.system(size: 25))
@@ -49,27 +52,54 @@ struct ManagementView: View {
                         .foregroundColor(/*@START_MENU_TOKEN@*/.white/*@END_MENU_TOKEN@*/)
                         .padding(.vertical, 15)
                         .padding(.horizontal, 50)
-                        .background(Color.main)
+                        .background(managementVM.status == "근무중" || managementVM.status == "휴식중" ? Color("DDDDDD") : Color.main)
                         .cornerRadius(5)
-                }
+                }.disabled(managementVM.status == "근무중" || managementVM.status == "휴식중" ? true : false)
                 
-                Button {
-                    managementVM.outWork()
-                } label: {
-                    Text("퇴근")
-                        .font(.system(size: 25))
-                        .fontWeight(.bold)
-                        .foregroundColor(/*@START_MENU_TOKEN@*/.white/*@END_MENU_TOKEN@*/)
-                        .padding(.vertical, 15)
-                        .padding(.horizontal, 50)
-                        .background(Color.main)
-                        .cornerRadius(5)
+                if managementVM.status != "퇴근" {
+                    Button {
+                        self.outWorkAlert = true
+                    } label: {
+                        Text("퇴근")
+                            .font(.system(size: 25))
+                            .fontWeight(.bold)
+                            .foregroundColor(/*@START_MENU_TOKEN@*/.white/*@END_MENU_TOKEN@*/)
+                            .padding(.vertical, 15)
+                            .padding(.horizontal, 50)
+                            .background(Color.main)
+                            .cornerRadius(5)
+                    }
                 }
             }
             .padding(.bottom, 36)
+            .alert("출근", isPresented: $goWorkAlert) {
+                Button("취소", role: .cancel) {}
+                Button("출근하기", role: .none) {
+                    locationService.requestLocation { coordinate in
+                        managementVM.latitude = "\(coordinate.latitude)"
+                        managementVM.longitude = "\(coordinate.longitude)"
+                        managementVM.goWork()
+                    }
+                }
+            } message: {
+                Text("지금부터 출근 하시겠습니까?")
+            }
+            .alert("퇴근", isPresented: $outWorkAlert) {
+                Button("취소", role: .cancel) {}
+                Button("퇴근하기", role: .none) {
+                    managementVM.outWork()
+                }
+            } message: {
+                Text("퇴근 하시겠습니까?")
+            }
         }
         .onAppear {
             managementVM.getMyStatus()
+        }
+        .alert("안내", isPresented: $managementVM.isError) {
+            Button("확인", role: .cancel) {}
+        } message: {
+            Text(managementVM.errorMessage)
         }
     }
 }

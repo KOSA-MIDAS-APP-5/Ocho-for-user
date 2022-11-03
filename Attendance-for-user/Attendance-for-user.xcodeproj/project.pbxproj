@@ -33,6 +33,8 @@
 		4B1092B12913D462005B0B9C /* ManagementModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B1092B02913D462005B0B9C /* ManagementModel.swift */; };
 		4B1092B52913E39D005B0B9C /* UserListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B1092B42913E39D005B0B9C /* UserListViewModel.swift */; };
 		4B1092B82913E512005B0B9C /* UserListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B1092B72913E512005B0B9C /* UserListModel.swift */; };
+		4B46F2D5291423A600EAEA0B /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B46F2D4291423A600EAEA0B /* LocationService.swift */; };
+		4B46F2D8291434A700EAEA0B /* BackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B46F2D7291434A700EAEA0B /* BackButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,6 +64,9 @@
 		4B1092B02913D462005B0B9C /* ManagementModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagementModel.swift; sourceTree = "<group>"; };
 		4B1092B42913E39D005B0B9C /* UserListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListViewModel.swift; sourceTree = "<group>"; };
 		4B1092B72913E512005B0B9C /* UserListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListModel.swift; sourceTree = "<group>"; };
+		4B1092B929142213005B0B9C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		4B46F2D4291423A600EAEA0B /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
+		4B46F2D7291434A700EAEA0B /* BackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +100,7 @@
 		4B1092552913942D005B0B9C /* Attendance-for-user */ = {
 			isa = PBXGroup;
 			children = (
+				4B1092B929142213005B0B9C /* Info.plist */,
 				4B1092A42913B23C005B0B9C /* Resource */,
 				4B10927C29139568005B0B9C /* Network */,
 				4B10926429139437005B0B9C /* Source */,
@@ -146,6 +152,8 @@
 		4B109267291394D7005B0B9C /* Component */ = {
 			isa = PBXGroup;
 			children = (
+				4B46F2D62914349400EAEA0B /* BackButton */,
+				4B1092BA291422FB005B0B9C /* LocationService */,
 				4B1092992913A5FC005B0B9C /* ManagementView */,
 				4B10929129139B85005B0B9C /* Model */,
 				4B10926A29139507005B0B9C /* Auth */,
@@ -312,7 +320,6 @@
 				4B1092B62913E500005B0B9C /* Model */,
 				4B1092B32913DF7B005B0B9C /* ViewModel */,
 				4B1092B22913DF77005B0B9C /* View */,
-				4B1092A22913B1F0005B0B9C /* UserListView.swift */,
 			);
 			path = UseListView;
 			sourceTree = "<group>";
@@ -344,6 +351,7 @@
 		4B1092B22913DF77005B0B9C /* View */ = {
 			isa = PBXGroup;
 			children = (
+				4B1092A22913B1F0005B0B9C /* UserListView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -362,6 +370,22 @@
 				4B1092B72913E512005B0B9C /* UserListModel.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		4B1092BA291422FB005B0B9C /* LocationService */ = {
+			isa = PBXGroup;
+			children = (
+				4B46F2D4291423A600EAEA0B /* LocationService.swift */,
+			);
+			path = LocationService;
+			sourceTree = "<group>";
+		};
+		4B46F2D62914349400EAEA0B /* BackButton */ = {
+			isa = PBXGroup;
+			children = (
+				4B46F2D7291434A700EAEA0B /* BackButton.swift */,
+			);
+			path = BackButton;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -444,12 +468,14 @@
 				4B1092B52913E39D005B0B9C /* UserListViewModel.swift in Sources */,
 				4B10928429139568005B0B9C /* Header.swift in Sources */,
 				4B10926D29139507005B0B9C /* AuthTextField.swift in Sources */,
+				4B46F2D8291434A700EAEA0B /* BackButton.swift in Sources */,
 				4B10928329139568005B0B9C /* MoyaLogPlugin.swift in Sources */,
 				4B10928229139568005B0B9C /* UserClient.swift in Sources */,
 				4B1092782913951B005B0B9C /* LoginView.swift in Sources */,
 				4B10929329139B8D005B0B9C /* ErrorModel.swift in Sources */,
 				4B1092A92913C6D6005B0B9C /* LoginTitle.swift in Sources */,
 				4B10928C2913990F005B0B9C /* SignUpView.swift in Sources */,
+				4B46F2D5291423A600EAEA0B /* LocationService.swift in Sources */,
 				4B1092772913951B005B0B9C /* LoginModel.swift in Sources */,
 				4B1092B82913E512005B0B9C /* UserListModel.swift in Sources */,
 				4B1092762913951B005B0B9C /* logInViewModel.swift in Sources */,
@@ -594,9 +620,10 @@
 				DEVELOPMENT_TEAM = 629Q9H7922;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Attendance-for-user/Info.plist";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "\"현재 위치 사용을 허용하시겠습니까?\"";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -623,9 +650,10 @@
 				DEVELOPMENT_TEAM = 629Q9H7922;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Attendance-for-user/Info.plist";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "\"현재 위치 사용을 허용하시겠습니까?\"";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (

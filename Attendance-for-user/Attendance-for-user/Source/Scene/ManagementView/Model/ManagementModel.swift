@@ -19,6 +19,6 @@ import Foundation
 struct ManagementModel: Codable {
     let startTime: String
     let workTime: String
-    let timeRemaining: String
+    let remainingTime: String
     let status: String
 }

@@ -12,12 +12,12 @@ struct SignUpView: View {
     
     var body: some View {
         ZStack {
-            VStack(spacing: 19) {
+            VStack(alignment: .leading, spacing: 19) {
                 Spacer()
                     .frame(height: 150)
-                    
+                
                 Text("회원가입")
-                    .font(.system(size: 30))
+                    .font(.system(size: 45))
                     .fontWeight(.bold)
                     .padding(.bottom, 10)
                 
@@ -52,6 +52,12 @@ struct SignUpView: View {
                 Spacer()
             }
             .padding(.horizontal, 23)
+        }
+        .navigationBarBackButtonHidden(true)
+        .toolbar {
+            ToolbarItem(placement: .navigationBarLeading) {
+                BackButton()
+            }
         }
     }
 }

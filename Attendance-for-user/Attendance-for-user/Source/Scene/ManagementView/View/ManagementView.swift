@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ManagementView: View {
     var body: some View {
-        Text("h")
+        StatusView()
     }
     
 }

@@ -16,12 +16,12 @@ struct AuthButton: View {
                 Rectangle()
                     .frame(height: 0)
                 Text(title)
-                    .font(.system(size: 15))
+                    .font(.system(size: 22))
                     .fontWeight(.semibold)
                     .foregroundColor(.white)
             }
             .padding(.vertical, 19)
-            .background(Color("92A9BD"))
+            .background(Color.main)
             .cornerRadius(8)
             .shadow(color: .gray, radius: 2, x: 1, y: 1)
         }

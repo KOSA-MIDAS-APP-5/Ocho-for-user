@@ -4,15 +4,12 @@ struct LoginView: View {
     @StateObject var LoginVM = LogInViewModel()
     var body: some View {
         ZStack {
-            navi
-            VStack(spacing: 19) {
+            NavigationLink(destination: ManagementView(), tag: 1, selection: $LoginVM.isSucced) { EmptyView() }
+            VStack(alignment: .leading, spacing: 19) {
                 Spacer()
-                    .frame(height: 150)
+                    .frame(height: 110)
                     
-                Text("출퇴근 관리 시스템")
-                    .font(.system(size: 30))
-                    .fontWeight(.bold)
-                    .padding(.bottom, 10)
+                LoginTitle()
                 
                 AuthTextField(
                     placeholder: "이름",
@@ -24,22 +21,6 @@ struct LoginView: View {
                     isSecret: true,
                     text: $LoginVM.password
                 )
-                
-                HStack {
-                    NavigationLink(destination: SignUpView()) {
-                        Text("회원가입")
-                            .foregroundColor(.gray)
-                            .fontWeight(.bold)
-                    }
-                    Spacer()
-                    Button {
-                        print("비밀번호 찾기")
-                    } label: {
-                        Text("비밀번호 찾기")
-                            .foregroundColor(.gray)
-                            .fontWeight(.bold)
-                    }
-                }
                 
                 AuthButton(
                     title: "Login",
@@ -53,6 +34,27 @@ struct LoginView: View {
                 } message: {
                     Text(LoginVM.errorMessage)
                 }
+                
+                HStack {
+                    Spacer()
+                    HStack(spacing: 0) {
+                        Text("계정이 없으신가요?")
+                            .font(.system(size: 14))
+                            .foregroundColor(.gray)
+                            .fontWeight(.medium)
+                        
+                        NavigationLink(destination: SignUpView()) {
+                            Text("회원가입")
+                                .font(.system(size: 14))
+                                .foregroundColor(.gray)
+                                .fontWeight(.bold)
+                                .underline()
+                        }
+                    }
+                    Spacer()
+                }
+                
+                
                 Spacer()
             }
             .padding(.horizontal, 23)

@@ -8,8 +8,17 @@
 import SwiftUI
 
 struct StatusView: View {
+    var isWork: Bool = false
+    var status: String = "출근중"
     var body: some View {
-        Text("Status")
+        Circle()
+            .foregroundColor(isWork ? Color("30DB5B") : Color("FFA5A5"))
+            .overlay(
+                Text(status)
+                    .font(.system(size: 80))
+                    .fontWeight(.bold)
+                    .foregroundColor(.black)
+            )
     }
 }
 

@@ -32,17 +32,6 @@ struct SignUpView: View {
                     text: $signUpVM.password
                 )
                 
-                HStack {
-                    Spacer()
-                    Button {
-                        print("비밀번호 찾기")
-                    } label: {
-                        Text("비밀번호 찾기")
-                            .foregroundColor(.gray)
-                            .fontWeight(.bold)
-                    }
-                }
-                
                 AuthButton(
                     title: "SignUp",
                     action: {

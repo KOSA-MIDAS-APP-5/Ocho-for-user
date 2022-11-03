@@ -8,22 +8,27 @@
 import SwiftUI
 
 struct StatusView: View {
-    var isWork: Bool = false
-    var status: String = "출근중"
+    @Binding var status: String
     var body: some View {
         Circle()
-            .foregroundColor(isWork ? Color("30DB5B") : Color("FFA5A5"))
+            .frame(width: 251, height: 251)
+            .foregroundColor(status == "근무중" ? Color("FFA5A5") : Color.gray)
             .overlay(
-                Text(status)
-                    .font(.system(size: 80))
-                    .fontWeight(.bold)
-                    .foregroundColor(.black)
+                VStack {
+                    Image("check")
+                        
+                    Text(status)
+                        .font(.system(size: 40))
+                        .fontWeight(.bold)
+                        .foregroundColor(.white)
+                }
+                
             )
     }
 }
 
 struct StatusView_Previews: PreviewProvider {
     static var previews: some View {
-        StatusView()
+        StatusView(status: .constant("근무중"))
     }
 }

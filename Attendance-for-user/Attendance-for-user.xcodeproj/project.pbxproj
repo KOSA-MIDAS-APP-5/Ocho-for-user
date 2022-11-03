@@ -29,6 +29,8 @@
 		4B1092A32913B1F0005B0B9C /* UserListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B1092A22913B1F0005B0B9C /* UserListView.swift */; };
 		4B1092A62913B24B005B0B9C /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B1092A52913B24B005B0B9C /* Color.swift */; };
 		4B1092A92913C6D6005B0B9C /* LoginTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B1092A82913C6D6005B0B9C /* LoginTitle.swift */; };
+		4B1092AE2913D0C3005B0B9C /* ManagementViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B1092AD2913D0C3005B0B9C /* ManagementViewModel.swift */; };
+		4B1092B12913D462005B0B9C /* ManagementModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B1092B02913D462005B0B9C /* ManagementModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +56,8 @@
 		4B1092A22913B1F0005B0B9C /* UserListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListView.swift; sourceTree = "<group>"; };
 		4B1092A52913B24B005B0B9C /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		4B1092A82913C6D6005B0B9C /* LoginTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginTitle.swift; sourceTree = "<group>"; };
+		4B1092AD2913D0C3005B0B9C /* ManagementViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagementViewModel.swift; sourceTree = "<group>"; };
+		4B1092B02913D462005B0B9C /* ManagementModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagementModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -259,6 +263,7 @@
 		4B1092942913A45F005B0B9C /* ManagementView */ = {
 			isa = PBXGroup;
 			children = (
+				4B1092AF2913D44B005B0B9C /* Model */,
 				4B1092962913A4C9005B0B9C /* ViewModel */,
 				4B1092952913A4C7005B0B9C /* View */,
 			);
@@ -276,6 +281,7 @@
 		4B1092962913A4C9005B0B9C /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				4B1092AD2913D0C3005B0B9C /* ManagementViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -299,6 +305,8 @@
 		4B1092A12913B03E005B0B9C /* UseListView */ = {
 			isa = PBXGroup;
 			children = (
+				4B1092B32913DF7B005B0B9C /* ViewModel */,
+				4B1092B22913DF77005B0B9C /* View */,
 				4B1092A22913B1F0005B0B9C /* UserListView.swift */,
 			);
 			path = UseListView;
@@ -318,6 +326,28 @@
 				4B1092A82913C6D6005B0B9C /* LoginTitle.swift */,
 			);
 			path = Login;
+			sourceTree = "<group>";
+		};
+		4B1092AF2913D44B005B0B9C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4B1092B02913D462005B0B9C /* ManagementModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		4B1092B22913DF77005B0B9C /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		4B1092B32913DF7B005B0B9C /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -413,8 +443,10 @@
 				4B1092902913995E005B0B9C /* SignUpViewModel.swift in Sources */,
 				4B1092572913942D005B0B9C /* Attendance_for_userApp.swift in Sources */,
 				4B1092982913A4DD005B0B9C /* ManagementView.swift in Sources */,
+				4B1092AE2913D0C3005B0B9C /* ManagementViewModel.swift in Sources */,
 				4B10929C2913A631005B0B9C /* StatusView.swift in Sources */,
 				4B1092A62913B24B005B0B9C /* Color.swift in Sources */,
+				4B1092B12913D462005B0B9C /* ManagementModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

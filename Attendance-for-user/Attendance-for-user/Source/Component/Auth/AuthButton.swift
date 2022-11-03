@@ -20,7 +20,7 @@ struct AuthButton: View {
                     .fontWeight(.semibold)
                     .foregroundColor(.white)
             }
-            .padding(.vertical, 19)
+            .padding(.vertical, 15)
             .background(Color.main)
             .cornerRadius(8)
             .shadow(color: .gray, radius: 2, x: 1, y: 1)

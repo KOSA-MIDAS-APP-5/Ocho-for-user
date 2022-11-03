@@ -50,6 +50,7 @@ struct ManagementView: View {
                         .padding(.vertical, 15)
                         .padding(.horizontal, 50)
                         .background(Color.main)
+                        .cornerRadius(5)
                 }
                 
                 Button {
@@ -62,6 +63,7 @@ struct ManagementView: View {
                         .padding(.vertical, 15)
                         .padding(.horizontal, 50)
                         .background(Color.main)
+                        .cornerRadius(5)
                 }
             }
             .padding(.bottom, 36)
